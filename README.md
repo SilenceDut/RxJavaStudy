@@ -30,8 +30,8 @@ Observable.create(new Observable.OnSubscribe<News>() {
                 });
 
 ```
-以[**NBAPlus**](https://github.com/SilenceDut/NBAPlus/blob/master/app/src/main/java/com/me/silencedut/nbaplus/rxmethod/RxNews.java)里的代码为例,
-在subscribe(new Action1<News>(){}}的过程中,首先将Action1转化为一个Subscriber对象,这里使用适配器模式进行转化
+以[**NBAPlus**](https://github.com/SilenceDut/NBAPlus/blob/master/app/src/main/java/com/me/silencedut/nbaplus/rxmethod/RxNews.java)里的代码为例,这里的News泛型限定符代表发出的事件类型是News类型,
+在subscribe(new Action1<News>(){}}的过程中,这里的News与上面对应是处理News类型的信息,首先将Action1转化为一个Subscriber对象,这里转化方法类似[**AdapterPattern(适配器模式)**](https://github.com/SilenceDut/DesignPatterns/blob/master/src/com/silencedut/structural_patterns/adapter/design_rules.md)
 ```java 
     public final Subscription subscribe(final Action1<? super T> onNext, final Action1<Throwable> onError) {
         if (onNext == null) {
